@@ -1,4 +1,4 @@
-package com.dev;
+package com.dev.jac;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
