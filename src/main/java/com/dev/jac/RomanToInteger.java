@@ -7,6 +7,10 @@ public class RomanToInteger {
 
     public int romanToInt(String s) {
 
+        if(s == null || s.length() < 1 || s.length() > 15) {
+            return -1;
+        }
+
         Map<String, Integer> map= new HashMap<>();
         map.put("I", 1);
         map.put("V", 5);
@@ -19,9 +23,12 @@ public class RomanToInteger {
         int sum = 0;
         for(int i = 0; i < s.length(); i++) {
             String letter = String.valueOf(s.charAt(i));
-            Integer convertedValue = map.get(letter) != null ? map.get(letter) : 0;
+            if(!map.containsKey(letter)) {
+                return -1;
+            }
+            Integer convertedValue = map.get(letter);
             String previousLetter = (i-1) >= 0 ? String.valueOf(s.charAt(i-1)) : "";
-            Integer previousValue = map.get(previousLetter) != null ? map.get(previousLetter) : 0;
+            Integer previousValue = map.get(previousLetter);
             if(isIVOrIX(letter, previousLetter) || isXLOrXC(letter, previousLetter) || isCDOrCM(letter, previousLetter)) {
                 sum = sum - previousValue + convertedValue - previousValue;
             } else {

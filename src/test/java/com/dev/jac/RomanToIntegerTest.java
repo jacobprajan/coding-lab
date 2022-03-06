@@ -16,8 +16,25 @@ class RomanToIntegerTest {
     }
 
     @Test
-    @DisplayName("Integer value of III is 3")
+    @DisplayName("Integer value of null is -1")
     void testRoman1() {
+        String roman = null;
+        int expected = -1;
+        assertEquals(expected, romanToInteger.romanToInt(roman), "Should return -1");
+    }
+
+    @Test
+    @DisplayName("Integer value of IIGI is -1")
+    void testRoman2() {
+        String roman = "IIGI";
+        int expected = -1;
+        assertEquals(expected, romanToInteger.romanToInt(roman), "Should return -1");
+    }
+
+
+    @Test
+    @DisplayName("Integer value of III is 3")
+    void testRoman3() {
         String roman = "III";
         int expected = 3;
         assertEquals(expected, romanToInteger.romanToInt(roman), "Should return 3");
@@ -25,7 +42,7 @@ class RomanToIntegerTest {
 
     @Test
     @DisplayName("Integer value of LVIII is 58")
-    void testRoman2() {
+    void testRoman4() {
         String roman = "LVIII";
         int expected = 58;
         assertEquals(expected, romanToInteger.romanToInt(roman), "Should return 58");
@@ -33,7 +50,7 @@ class RomanToIntegerTest {
 
     @Test
     @DisplayName("Integer value of IV is 4")
-    void testRoman3() {
+    void testRoman5() {
         String roman = "IV";
         int expected = 4;
         assertEquals(expected, romanToInteger.romanToInt(roman), "Should return 4");
@@ -41,7 +58,7 @@ class RomanToIntegerTest {
 
     @Test
     @DisplayName("Integer value of MCMXCIV is 1994")
-    void testRoman4() {
+    void testRoman6() {
         String roman = "MCMXCIV";
         int expected = 1994;
         assertEquals(expected, romanToInteger.romanToInt(roman), "Should return 1994");
