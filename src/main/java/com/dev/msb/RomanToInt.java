@@ -5,12 +5,12 @@ import java.util.Map;
 public class RomanToInt {
     public static void main(String args[]) {
         System.out.println(romanToInt("III"));
-        System.out.println(romanToInt("IVII"));
+        System.out.println(romanToInt("XLII"));
         System.out.println(romanToInt("LVIII"));
         System.out.println(romanToInt("MCMXCIV"));
     }
 
-    private static int romanToInt(String s) {
+    private static int romanToInt1(String s) {
         int sum = 0;
         for (int i = 0; i < s.length(); i++) {
             if (i + 2 <= s.length() && romanConstants.containsKey(s.substring(i, i + 2))) {
@@ -24,6 +24,55 @@ public class RomanToInt {
         }
 
         return sum;
+    }
+
+    private static int romanToInt(String s) {
+        int sum = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (i + 2 <= s.length() && getValue(s.substring(i, i + 2)) > 0) {
+                sum += getValue(s.substring(i, i + 2));
+                i += 1;
+            } else if (getValue(s.substring(i, i + 1)) > 0) {
+                sum += getValue(s.substring(i, i + 1));
+            } else {
+                return 0;
+            }
+        }
+
+        return sum;
+    }
+
+    private static int getValue(String s) {
+        switch (s) {
+            case "I":
+                return 1;
+            case "V":
+                return 5;
+            case "X":
+                return 10;
+            case "L":
+                return 50;
+            case "C":
+                return 100;
+            case "D":
+                return 500;
+            case "M":
+                return 1000;
+            case "CM":
+                return 900;
+            case "CD":
+                return 400;
+            case "XC":
+                return 90;
+            case "XL":
+                return 40;
+            case "IX":
+                return 9;
+            case "IV":
+                return 4;
+            default:
+                return s.length() > 1 ? -1 : 0;
+        }
     }
 
     private static Map<String, Integer> romanConstants = Map.ofEntries(
