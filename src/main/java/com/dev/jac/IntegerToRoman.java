@@ -22,13 +22,8 @@ public class IntegerToRoman {
         map.put(40, "XL");
         map.put(10, "X");
         map.put(9, "IX");
-        map.put(8, "VIII");
-        map.put(7, "VII");
-        map.put(6, "VI");
         map.put(5, "V");
         map.put(4, "IV");
-        map.put(3, "III");
-        map.put(2, "II");
         map.put(1, "I");
 
         String result= "";
@@ -38,7 +33,7 @@ public class IntegerToRoman {
                result += entry.getValue();
                num = num - entry.getKey();
            }
-           if(num < 0) {
+           if(num <= 0) {
                 break;
            }
         }
