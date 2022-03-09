@@ -12,8 +12,6 @@ public class IntToRoman {
     }
 
     private static String intToRoman(int num) {
-
-
         return getValue(num, "");
     }
 
