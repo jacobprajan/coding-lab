@@ -55,5 +55,11 @@ class IntegerToRomanTest {
         assertEquals(expected, integerToRoman.intToRoman(input), "Should return XX");
     }
 
-
+    @Test
+    @DisplayName("Roman value of 9 is IX")
+    void testIntToRoman6() {
+        Integer input = 9;
+        String expected = "IX";
+        assertEquals(expected, integerToRoman.intToRoman(input), "Should return IX");
+    }
 }
