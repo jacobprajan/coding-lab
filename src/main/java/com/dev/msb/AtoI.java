@@ -4,8 +4,8 @@ public class AtoI {
     public static void main(String args[]) {
 //        System.out.println("-12345 : " + myAtoi("-12345"));
 //        System.out.println("   -42 : " + myAtoi("   -42"));
-        System.out.println("2147483646 : " + myAtoi("2147483646"));
-//        System.out.println("-999999999999 : " + myAtoi("-999999999999"));
+        System.out.println("2147483646 : " + myAtoi("2147483648"));
+//        System.out.println("-999999999999asdas : " + myAtoi("-999999999999"));
 //        System.out.println("999999999999 : " + myAtoi("999999999999"));
     }
 
@@ -28,6 +28,8 @@ public class AtoI {
 
         return isNegative ? responseInt * -1 : responseInt;
     }
+
+
 
     private static int myAtoi123(String input) {
         int sign = 1;
