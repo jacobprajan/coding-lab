@@ -15,10 +15,16 @@ public class CafteriaDiners {
 
         Arrays.sort(S);
         long count = 0;
+        long min = 0;
         for(int i=S.length; i>0; i--) {
            long max = i == S.length ? N : S[i]-1;
-           double ceil = Math.ceil((max - S[i-1]) / (K * 2));
+           min = S[i-1]+1;
+           double ceil = Math.ceil((max - min) / (K * 2));
            count += Double.valueOf(ceil).longValue();
+        }
+        if(min > 0) {
+            double ceil = Math.ceil((min-1) / (K * 2));
+            count += Double.valueOf(ceil).longValue();
         }
         return count;
     }

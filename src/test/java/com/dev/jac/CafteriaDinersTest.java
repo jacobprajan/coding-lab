@@ -34,7 +34,18 @@ class CafteriaDinersTest {
         long K = 2;
         int M = 3;
         long[] S = new long[] {11, 6, 14};
-        long expected = 1;
+        long expected = 1;         // 3 6 11 14
+        assertEquals(expected, cafteriaDiners.getMaxAdditionalDinersCount(N, K, M, S), "Should return count");
+    }
+
+    @Test
+    @DisplayName("getMaxAdditionalDinersCount3")
+    void getMaxAdditionalDinersCount3() {
+        long N = 20;
+        long K = 1;
+        int M = 2;
+        long[] S = new long[] {10, 14};
+        long expected = 8;    //   2 4 6 8 10 12 14 16 18 20
         assertEquals(expected, cafteriaDiners.getMaxAdditionalDinersCount(N, K, M, S), "Should return count");
     }
 
